@@ -11,7 +11,7 @@ import {
 	makeStyles,
 	ThemeProvider,
 } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Updated import
 import { CoinState } from "../CoinContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,8 +36,7 @@ const darkTheme = createTheme({
 function Header() {
 	const classes = useStyles();
 	const { currency, setCurrency } = CoinState();
-
-	const history = useHistory();
+	const navigate = useNavigate(); // Updated from useHistory
 
 	return (
 		<ThemeProvider theme={darkTheme}>
@@ -45,7 +44,7 @@ function Header() {
 				<Container>
 					<Toolbar>
 						<Typography
-							onClick={() => history.push(`/`)}
+							onClick={() => navigate(`/`)} // Updated from history.push
 							variant='h6'
 							className={classes.title}>
 							MarketMingle
@@ -61,7 +60,7 @@ function Header() {
 							<MenuItem value={"USD"}>ZAR</MenuItem>
 							<MenuItem value={"EUR"}>EUR</MenuItem>
 							<MenuItem value={"ZAR"}>USD</MenuItem>
-							<MenuItem value={"NGN "}>NGN</MenuItem>
+							<MenuItem value={"NGN"}>NGN</MenuItem>
 						</Select>
 					</Toolbar>
 				</Container>

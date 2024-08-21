@@ -10,12 +10,12 @@ import {
 } from "@material-ui/core";
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
-import { CryptoState } from "../CoinContext";
+import { CoinState } from "../CoinContext";
 
 const CoinInfo = ({ coin }) => {
 	const [historicData, setHistoricData] = useState();
 	const [days, setDays] = useState(1);
-	const { currency } = CryptoState();
+	const { currency } = CoinState();
 	const [flag, setflag] = useState(false);
 
 	const useStyles = makeStyles((theme) => ({
